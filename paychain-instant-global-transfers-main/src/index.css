@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* PayChain — Black/white base with green, blue, yellow accents */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 145 75% 50%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 50 100% 55%;
+    --accent-foreground: 0 0% 6%;
+
+    --neon-blue: 210 100% 55%;
+    --neon-purple: 145 75% 50%;
+    --neon-cyan: 50 100% 55%;
+    --success: 145 75% 48%;
+    --warning: 50 100% 55%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 210 100% 55%;
+
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(145 75% 50%) 100%);
+    --gradient-radial: radial-gradient(ellipse at top, hsl(210 100% 30% / 0.5), transparent 70%);
+    --gradient-mesh: radial-gradient(at 20% 20%, hsl(210 100% 55% / 0.22) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(145 75% 50% / 0.20) 0px, transparent 50%),
+                     radial-gradient(at 80% 80%, hsl(50 100% 55% / 0.15) 0px, transparent 50%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 9% / 0.7) 0%, hsl(0 0% 5% / 0.5) 100%);
+
+    --shadow-glow: 0 0 60px hsl(210 100% 55% / 0.35);
+    --shadow-neon: 0 0 40px hsl(210 100% 55% / 0.4), 0 0 80px hsl(145 75% 50% / 0.25);
+    --shadow-elegant: 0 20px 60px -20px hsl(210 100% 30% / 0.5);
+
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+  }
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-neon { box-shadow: var(--shadow-neon); }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
